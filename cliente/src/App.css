@@ -605,11 +605,40 @@ body {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .dashboard-header {
-    padding: 20px;
+    padding: 15px;
+    flex-direction: column;
+    gap: 15px;
+    min-height: auto;
+    text-align: center;
+    position: relative;
   }
   
   .dashboard-header h1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+  
+  /* Ocultar completamente el logo central en móvil para evitar superposiciones */
+  .dashboard-header div[style*="position: absolute"],
+  .dashboard-header div[style*="position:absolute"] {
+    display: none !important;
+  }
+  
+  /* Forzar que el logo no aparezca en móvil */
+  .dashboard-header > div:nth-child(2) {
+    display: none !important;
+  }
+  
+  /* Ajustar el primer div (info del usuario/admin) */
+  .dashboard-header > div:first-child {
+    justify-content: center !important;
+    flex: none !important;
+  }
+  
+  /* Ajustar el botón de logout */
+  .btn-logout {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
   }
   
   .stats-grid {
@@ -649,6 +678,77 @@ body {
   
   .form-actions {
     flex-direction: column;
+  }
+}
+
+/* ===== RESPONSIVE PARA MÓVILES PEQUEÑOS ===== */
+@media (max-width: 480px) {
+  .dashboard-header {
+    padding: 10px;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+  
+  .dashboard-header p {
+    font-size: 0.8rem;
+    line-height: 1.1;
+  }
+  
+  /* Asegurar que no aparezca el logo en móvil */
+  .dashboard-header div[style*="position: absolute"],
+  .dashboard-header div[style*="position:absolute"],
+  .dashboard-header > div:nth-child(2) {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  
+  /* Contenedor principal centrado */
+  .dashboard-header > div:first-child {
+    justify-content: center !important;
+    align-items: center !important;
+    flex: none !important;
+    width: 100%;
+  }
+  
+  .btn-logout {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-top: 5px;
+    align-self: center;
+  }
+  
+  .stats-grid {
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .stat-card {
+    padding: 15px;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .stat-card i {
+    font-size: 1.5rem;
+  }
+  
+  .admin-section {
+    margin: 10px 15px;
+  }
+  
+  .section-header {
+    padding: 15px;
+  }
+  
+  .section-header h2 {
+    font-size: 1.2rem;
   }
 }
 
