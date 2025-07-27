@@ -26,10 +26,5 @@
       "src": "/(.*)",
       "dest": "/cliente/$1"
     }
-  ],
-  "env": {
-    "MONGO_URL": "@mongo_url",
-    "JWT_SECRET": "@jwt_secret",
-    "PORT": "5000"
-  }
+  ]
 }
