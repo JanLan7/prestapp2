@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "node --watch server/index.js",
     "start": "node server/index.js",
-    "build": "cd cliente && npm install && npm run build",
-    "vercel-build": "cd cliente && npm install && npm run build"
+    "build": "cd cliente && npm ci --include=dev && npm run build",
+    "vercel-build": "cd cliente && npm ci --include=dev && npm run build"
   },
   "keywords": [],
   "author": "",

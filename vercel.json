@@ -13,7 +13,8 @@
       "src": "cliente/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "distDir": "dist",
+        "buildCommand": "npm ci --include=dev && npm run build"
       }
     }
   ],
