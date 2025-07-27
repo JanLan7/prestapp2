@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "name": "prestapp-mern",
+  "builds": [
+    {
+      "src": "server/index.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["server/**"]
+      }
+    },
+    {
+      "src": "cliente/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/server/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/cliente/$1"
+    }
+  ],
+  "env": {
+    "MONGO_URL": "@mongo_url",
+    "JWT_SECRET": "@jwt_secret",
+    "PORT": "5000"
+  },
+  "functions": {
+    "server/index.js": {
+      "maxDuration": 30
+    }
+  }
+}
